@@ -34,6 +34,9 @@ input[type="text"] {
 input[type=checkbox] {
     position: relative;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-items: center;
 }
 input[type=checkbox]:before {
     content: "";
@@ -51,15 +54,13 @@ input[type=checkbox]:checked:after {
     content: "";
     display: block;
     width: 5px;
-    height: 10px;
-    border: solid rgba(202, 79, 79, 0.801);
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+    height: 5px;
+    border: solid rgba(27, 20, 20, 0.801);
+    border-width: 2px 2px 2px 2px;
+    background:rgb(77, 69, 69);
+    transform: rotate(90deg);
     position: absolute;
-    top: 2px;
-    left: 6px;
+    left: 42%;
 }
 
 #resultado{
