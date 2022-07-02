@@ -1,19 +1,30 @@
-let elementInput = document.getElementById("element");
-let elementSubmit = document.getElementById("sub");
 
-let result = document.getElementById("resultado");
-// click que recebe o valor
-elementSubmit.addEventListener("click",newElement);
+const input = document.getElementById('input'); // cadastro
+const submit = document.getElementById('submit'); // adicionar
+const remove = document.getElementById('remove'); // remover
+let resultado = document.getElementById('resultado');
+console.log(input,submit,remove);
 
-let guardar = [];
-let remover = [];
-let i =0;
+let itens;
+let marcado;
 
-function newElement() {
-    let Input = elementInput.value;
-    guardar[i]=Input;
-    result.innerHTML += `<p style="margin-top:5px;">${guardar[i]} <input type="checkbox" id="${i}c"></p>`
-    console.log(Input);
-    i++;
+function addItem() {
+    if(input.value != '') {
+        resultado.innerHTML += `<p>${input.value}<input type="checkbox" class="Visible"></p>`;
+    }
+    let p = document.querySelectorAll('#resultado p');
+    let check = document.querySelectorAll('#resultado p input[type=checkbox]');
+    itens = Array.from(p);
+    marcado = Array.from(check);
+}
 
+submit.addEventListener('click', addItem);
+
+remove.addEventListener('click', removeItem);
+function removeItem() {
+    marcado.forEach(item => {
+        if(item.checked && item != undefined){
+            item.parentNode.remove();
+        } 
+    })
 }
